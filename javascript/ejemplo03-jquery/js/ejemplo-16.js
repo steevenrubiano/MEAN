@@ -4,8 +4,8 @@ function initializeEvents(){
     $("#boton2").click(showBox);
 }
 function hideBox(){
-    $("#descripcion").fadeTo("slow", 0.5).hide("slow");
+    $("#descripcion").fadeTo("slow",0.5).hide("slow");
 }
 function showBox(){
-     $("#descripcion").show("slow").fadeTo("slow", 1);
+     $("#descripcion").show("slow").fadeTo("slow",1);
 }
