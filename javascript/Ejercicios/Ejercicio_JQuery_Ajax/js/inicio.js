@@ -33,7 +33,7 @@ function peticionAjaxGenerica(){
         //Tipo de dato esperado 
         dataType:"json",
         //URL de comunicacion con el servicio
-        url:"https://jsonplaceholder.typicode.com/users"
+        url:"peliculas.json"
     }).done(peticionCompletada).fail(peticionFallida);
 }
 function peticionCompletada(data, status,jqXHR){
@@ -44,18 +44,4 @@ function peticionFallida(jqXHR,status,error){
     alert("Error al procesar la peticion");
     console.log("Status: " +status);
     console.log("Error! "+error);
-}
-
-function pruebasConGetyPost(){
-    $.get("http://localhost:8080/ejemplo-17-fichero_alojado_en_servidor.txt",
-    resultadoGet);
-    $.post("http://localhost:8080/ejemplo-17-fichero_alojado_en_servidor.txt",
-    resultadoPost);
-}
-function resultadoGet(data,status){
-    alert("Resultado: " +data);
-}
-
-function resultadoPost(){
-    alert("Post correcto!")
 }
