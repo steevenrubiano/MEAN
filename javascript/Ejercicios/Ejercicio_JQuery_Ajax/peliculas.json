@@ -2,24 +2,17 @@
   "peliculas": [
     {
       "id": 1,
-      "titulo": "Primera peli",
-      "director": "Primer director",
-      "sinopsis": "Malisima",
-      "fecha": "26/10/2016"
+      "titulo": "Titanic",
+      "director": "NoloSe",
+      "sinopsis": "MuTriste",
+      "fecha": "2016-10-01"
     },
     {
       "id": 2,
-      "titulo": "Segunda peli",
-      "director": "Segundo director",
-      "sinopsis": "Regular",
-      "fecha": "26/10/2016"
-    },
-    {
-      "id": 3,
-      "titulo": "Tercera peli",
-      "director": "Tercer director",
-      "sinopsis": "Buenisima",
-      "fecha": "26/10/2016"
+      "titulo": "AmericanHistoryX",
+      "director": "NoLoSe",
+      "sinopsis": "ToBuena",
+      "fecha": "2016-10-08"
     }
   ]
 }

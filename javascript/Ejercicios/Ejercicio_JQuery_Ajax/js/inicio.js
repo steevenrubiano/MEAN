@@ -2,19 +2,42 @@ $(document).ready(initializeEvents);
 function initializeEvents(){
    $("#boton1").click(guardarDato);
 }
-
-
+//POST
 function guardarDato(){
     $.ajax({
-        type:"POST", 
+        type:"POST",
+        data:{
+            "id":$("#id").val(),
+            "titulo":$("#titulo").val(),
+            "director":$("#director").val(),
+            "sinopsis":$("#sinopsis").val(),
+            "fecha":$("#fecha").val()
+        },
         dataType:"json",
         url:"http://localhost:3000/peliculas"
-    }).done(peticionCompletada)/*.fail(peticionFallida)*/;
+    }).done(peticionCompletadaGuardado);
+}
+function peticionCompletadaGuardado(data){
+    mostrarDato();
 }
 
-function peticionCompletada(data){
-    console.log(data);
+//GET
+function mostrarDato(){
+    $.ajax({
+        type:"GET",
+        dataType:"json",
+        url:"http://localhost:3000/peliculas"
+    }).done(peticionCompletadaMostrado);
 }
+function peticionCompletadaMostrado(data){
+    $("tbody").empty();
+    for(var i=0; i<data.length; i++){
+        $("tbody").append("<tr><td>"+data[i].id+"</td><td>"+data[i].titulo+"</td><td>"+data[i].director+"</td><td>"+data[i].sinopsis+"</td><td>"+data[i].fecha+"</td></tr>");
+    }
+}
+
+
+
 
 /*function peticionCompletada(data,status,jqXHR){
     console.log(data.peliculas.length);
