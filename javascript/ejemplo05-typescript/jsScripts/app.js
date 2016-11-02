@@ -45,11 +45,83 @@ var Ciudadano = (function (_super) {
         _super.call(this, nombre, apellido1, apellido2);
         this.identidad = identidad;
     }
+    /*constructor(identidad: string){
+        super(null,null,null);
+        this.identidad = identidad;
+    } */
     Ciudadano.prototype.stringify = function () {
         return _super.prototype.stringify.call(this) + " " + this.identidad;
     };
     return Ciudadano;
 }(Persona));
 var ciudadanoKane = new Ciudadano("kane", null, null, "1");
+//var ciudadanoKane = new Ciudadano("1");
 console.log(ciudadanoKane.stringify());
+var otraPersona = ciudadanoKane;
+console.log(otraPersona.stringify());
+var SerVivo = (function () {
+    function SerVivo(clasificacion) {
+        this.clasificacion = clasificacion;
+        SerVivo.totalDeSeresVivos += 1;
+    }
+    SerVivo.prototype.stringify = function () {
+        return "Clasificacion: " + this.clasificacion;
+    };
+    SerVivo.totalDeSeresVivos = 0;
+    return SerVivo;
+}());
+var pez = new SerVivo("Marino");
+var pez2 = new SerVivo("Marino");
+var pez3 = new SerVivo("Marino");
+var tigre = new SerVivo("Terrestre");
+var leon = new SerVivo("Terrestre");
+var pantera = new SerVivo("Terrestre");
+console.log("Total de seres vivos: " + SerVivo.totalDeSeresVivos);
+var Padre = (function () {
+    function Padre() {
+    }
+    return Padre;
+}());
+var padre = new Padre();
+padre.almacenPublico = 77;
+var HijoDePadre = (function (_super) {
+    __extends(HijoDePadre, _super);
+    function HijoDePadre() {
+        _super.call(this);
+        this.almacenPublico = 33;
+        this.almacenProtegido = 25;
+    }
+    return HijoDePadre;
+}(Padre));
+var Ser = (function () {
+    function Ser(clasificacion) {
+        this.clasificacion = clasificacion;
+        Ser.totalDeSeres += 1;
+    }
+    Ser.prototype.stringify = function () {
+        return "Clasificacion: " + this.clasificacion;
+    };
+    Ser.totalDeSeresVivos = 0;
+    return Ser;
+}());
+var Politico = (function (_super) {
+    __extends(Politico, _super);
+    function Politico() {
+        _super.call(this, "cucaracha");
+    }
+    Politico.prototype.desplazamiento = function () {
+        return "En coche oficial";
+    };
+    Politico.prototype.alimentarse = function () {
+        return "Dame dinero en sobres!";
+    };
+    return Politico;
+}(Ser));
+//Esto no se puede
+//let ser1: Ser = new Ser();
+var politico = new Politico();
+var funcionLambda = function (uno, dos) {
+    return uno + dos;
+};
+console.log("Resultado de sumar 1 y 3: " + funcionLambda(1, 3));
 //# sourceMappingURL=app.js.map
