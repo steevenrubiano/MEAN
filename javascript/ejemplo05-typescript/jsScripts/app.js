@@ -96,7 +96,7 @@ var HijoDePadre = (function (_super) {
 var Ser = (function () {
     function Ser(clasificacion) {
         this.clasificacion = clasificacion;
-        Ser.totalDeSeres += 1;
+        Ser.totalDeSeresVivos += 1;
     }
     Ser.prototype.stringify = function () {
         return "Clasificacion: " + this.clasificacion;
@@ -124,4 +124,61 @@ var funcionLambda = function (uno, dos) {
     return uno + dos;
 };
 console.log("Resultado de sumar 1 y 3: " + funcionLambda(1, 3));
+var PI = 3.141592654;
+//PI = 23; ESTO ESTA MAL
+//const otra; MAL HAY QUE DEFINIRLE UN VALOR, NO PUEDE SER UNDEFINED
+var _a = { variable1: "valorN1", variable2: "valorN2" }, variable1 = _a.variable1, variable2 = _a.variable2;
+console.log(variable1);
+console.log(variable2);
+function dameLosCamposPorConsola(campo1, campo2) {
+    var elRestoDeCampos = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        elRestoDeCampos[_i - 2] = arguments[_i];
+    }
+    console.log(campo1);
+    console.log(campo2);
+    console.log(elRestoDeCampos);
+    //FOR IN
+    console.log("-----------FOR IN-----------");
+    for (var posicion in elRestoDeCampos) {
+        console.log("La posicion " + posicion + " es " + elRestoDeCampos[posicion]);
+    }
+    //FOR OF
+    console.log("-----------FOR OF-----------");
+    for (var _a = 0, elRestoDeCampos_1 = elRestoDeCampos; _a < elRestoDeCampos_1.length; _a++) {
+        var campo = elRestoDeCampos_1[_a];
+        console.log("El campo es " + campo);
+    }
+}
+dameLosCamposPorConsola("uno", 2, "tres", "cuatro", 5, "seis");
+var TipoDeVia;
+(function (TipoDeVia) {
+    TipoDeVia[TipoDeVia["Calle"] = 0] = "Calle";
+    TipoDeVia[TipoDeVia["Rua"] = 1] = "Rua";
+    TipoDeVia[TipoDeVia["Plaza"] = 2] = "Plaza";
+    TipoDeVia[TipoDeVia["Camino"] = 3] = "Camino";
+    TipoDeVia[TipoDeVia["Avenida"] = 4] = "Avenida";
+    TipoDeVia[TipoDeVia["Carretera"] = 5] = "Carretera";
+})(TipoDeVia || (TipoDeVia = {}));
+;
+var miTipoDeVia = TipoDeVia.Calle;
+console.log("Tipo de via: " + miTipoDeVia);
+var TipoDeVia;
+(function (TipoDeVia) {
+    function esAvenida(texto) {
+        if (texto == "Avda") {
+            return TipoDeVia.Avenida;
+        }
+    }
+    TipoDeVia.esAvenida = esAvenida;
+})(TipoDeVia || (TipoDeVia = {}));
+var avenida = TipoDeVia.esAvenida("Avda");
+console.log(avenida);
+function invertir(elementos) {
+    var invertido = [];
+    for (var posicion = 0, posicionInvertido = elementos.length - 1; posicion < elementos.length; posicion++, posicionInvertido--) {
+        invertido[posicionInvertido] = elementos[posicion];
+    }
+    return invertido;
+}
 //# sourceMappingURL=app.js.map

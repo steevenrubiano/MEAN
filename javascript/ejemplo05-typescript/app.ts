@@ -114,7 +114,7 @@ abstract class Ser {
     protected clasificacion: string;
     constructor(clasificacion: string){
         this.clasificacion = clasificacion;
-        Ser.totalDeSeres +=1;
+        Ser.totalDeSeresVivos +=1;
     }
     stringify(): string{
         return "Clasificacion: " +this.clasificacion;
@@ -142,3 +142,61 @@ let funcionLambda = (uno: number, dos: number)=>{
  return uno + dos;
 }
 console.log("Resultado de sumar 1 y 3: " +funcionLambda(1,3));
+
+const PI = 3.141592654;
+//PI = 23; ESTO ESTA MAL
+
+//const otra; MAL HAY QUE DEFINIRLE UN VALOR, NO PUEDE SER UNDEFINED
+
+var {variable1, variable2} = {variable1: "valorN1", variable2:"valorN2"};
+console.log(variable1);
+console.log(variable2);
+
+function dameLosCamposPorConsola (campo1: string, campo2: number, ...elRestoDeCampos){
+    console.log(campo1);
+    console.log(campo2);
+    console.log(elRestoDeCampos);
+    //FOR IN
+    console.log("-----------FOR IN-----------");
+    for(let posicion in elRestoDeCampos){
+        console.log("La posicion " +posicion+" es "+elRestoDeCampos[posicion]);
+    }
+    //FOR OF
+    console.log("-----------FOR OF-----------");
+    for(let campo of elRestoDeCampos){
+        console.log("El campo es " +campo);
+    }
+}
+dameLosCamposPorConsola("uno", 2, "tres", "cuatro", 5, "seis");
+
+enum TipoDeVia{
+    Calle, 
+    Rua, 
+    Plaza, 
+    Camino, 
+    Avenida, 
+    Carretera
+};
+var miTipoDeVia: TipoDeVia = TipoDeVia.Calle;
+console.log("Tipo de via: " +miTipoDeVia);
+
+namespace TipoDeVia{
+    export function esAvenida(texto: string): TipoDeVia{
+        if(texto == "Avda"){
+            return TipoDeVia.Avenida;
+        }
+    }
+}
+
+var avenida = TipoDeVia.esAvenida("Avda");
+console.log(avenida);
+
+function invertir<T>(elementos: T[]): T[]{
+    let invertido: T[] = [];
+    for(let posicion=0, posicionInvertido=elementos.length-1; 
+    posicion<elementos.length; 
+    posicion++, posicionInvertido--){
+        invertido[posicionInvertido] = elementos[posicion];
+    }
+    return invertido;
+}
