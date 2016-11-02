@@ -2,31 +2,10 @@
   "peliculas": [
     {
       "id": 1,
-      "titulo": "titanic",
-      "director": "ahora si que lo se",
-      "sinopsis": "me aburroooooo",
-      "fecha": "2016-11-03"
-    },
-    {
-      "id": 2,
-      "titulo": "salchichas",
-      "director": "un tio majo",
-      "sinopsis": "graciosa",
-      "fecha": "2016-11-08"
-    },
-    {
-      "id": 3,
-      "titulo": "monstruo",
-      "director": "ni idea",
-      "sinopsis": "me aburrooooooo",
-      "fecha": "2016-11-17"
-    },
-    {
-      "id": 4,
-      "titulo": "fast n furious",
-      "director": "ni idea",
-      "sinopsis": "mu buena",
-      "fecha": "2016-11-03"
+      "titulo": "Titanic",
+      "director": "No se",
+      "sinopsis": "Aburrida",
+      "fecha": "2016-11-01"
     }
   ]
 }
