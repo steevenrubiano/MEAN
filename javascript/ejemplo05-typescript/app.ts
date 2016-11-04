@@ -1,73 +1,73 @@
-var variable = 2016;
-//variable = "texto"; 
-var otraVariable: number = 7;
+let variable = 2018;
+//variable = 'texto';
+var otraVariable :number = 7;
 otraVariable = 14;
-//otraVariable = "16";
+//otraVariable = '16'; 
 
-//Tipos
-interface Tiempo{
+// Tipos
+interface Tiempo {
     dia: number;
     mes: number;
     anio: number;
 }
-
-var miCumple :Tiempo = {dia:22, mes:2, anio:1993};
-console.log("El dia de mi cumple es: " +miCumple.dia);
-
-console.log("Antes de cumplir años: " +miCumple.anio);
-cumplirAnios(miCumple);
-console.log("Despues de cumplir años: " +miCumple.anio);
-
-function cumplirAnios(fechaDeCumple: Tiempo): void{
-    fechaDeCumple.anio++;
+var miCumpleanios :Tiempo = {dia:3,mes:11,anio:1978};
+console.log("El dia de mi cumple es : " + miCumpleanios.dia);
+console.log("Antes de cumplir años : " + miCumpleanios.anio);
+cumplirAnios(miCumpleanios);
+console.log("Despues de cumplir años : " + miCumpleanios.anio);
+function cumplirAnios(fechaDeCumpleanios :Tiempo):void{
+    fechaDeCumpleanios.anio++;
 }
 
-//Definiciones de clases
+// Definiciones de clases
 
-class Persona{
-    //Definicion de atributos
-    nombre: string;
-    apellido1: string;
-    apellido2: string;
-    //Metodo constructor
-    constructor(nombre: string, apellido1: string, apellido2: string){
+class Persona {
+    // Definicion de atributos
+    nombre :string;
+    apellido1 :string;
+    apellido2 :string;
+    // Metodo constructor
+    constructor(nombre :string, apellido1 :string, apellido2 :string){
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
     }
-    stringify(): string{
+    stringify():string{
         return this.nombre + " " + this.apellido1 + " " + this.apellido2;
     }
+    
 }
-//Sin metodo constructor
-/*let jonathan = new Persona();
-jonathan.nombre = "Jonathan";
-jonathan.apellido1 = "Rubiano";
-jonathan.apellido2 = "Marín";*/
 
-//Con metodo constructor
-let jonathan = new Persona("Jonathan", "Rubiano", "Marín");
-let laura = new Persona("Laura", "Herrera", "Martinez");
-console.log(jonathan.stringify());
-console.log(laura.stringify());
+// Sin metodo constructor
+/*let ruben = new Persona();
+ruben.nombre = "Ruben";
+ruben.apellido1 = "Gomez";
+ruben.apellido2 = "Garcia";*/
+// Con metodo constructor
+let ruben = new Persona( "Ruben","Gomez","Garcia");
+let luis = new Persona("Luis","Perez","Garcia");
+let alberto = new Persona("Alberto","Gomez","Gonzalez");
+console.log(ruben.stringify());
+console.log(luis.stringify());
+console.log(alberto.stringify());
 
-//Herencia
-class Ciudadano extends Persona{
+// Herencia!
+class Ciudadano extends Persona {
     identidad: string;
-    constructor(nombre: string, apellido1: string, apellido2: string, identidad: string){
-        super(nombre, apellido1, apellido2);
+    constructor(nombre :string,apellido1 :string, apellido2 :string, identidad :string){
+        super(nombre,apellido1,apellido2);
         this.identidad = identidad;
     }
-    /*constructor(identidad: string){
+    /*constructor(identidad :string){
         super(null,null,null);
         this.identidad = identidad;
-    } */
+    }*/
     stringify(): string{
         return super.stringify() + " " + this.identidad;
     }
+    
 }
-var ciudadanoKane = new Ciudadano("kane", null, null, "1");
-//var ciudadanoKane = new Ciudadano("1");
+var ciudadanoKane = new Ciudadano("Ruben","Gomez","Garcia","1");
 console.log(ciudadanoKane.stringify());
 var otraPersona: Persona = ciudadanoKane;
 console.log(otraPersona.stringify());
@@ -80,47 +80,53 @@ class SerVivo {
         SerVivo.totalDeSeresVivos +=1;
     }
     stringify(): string{
-        return "Clasificacion: " +this.clasificacion;
+        return "Clasificacion: " + this.clasificacion;
     }
 }
 
-let pez: SerVivo = new SerVivo("Marino");
-let pez2: SerVivo = new SerVivo("Marino");
-let pez3: SerVivo = new SerVivo("Marino");
-let tigre: SerVivo = new SerVivo("Terrestre");
-let leon: SerVivo = new SerVivo("Terrestre");
-let pantera: SerVivo = new SerVivo("Terrestre");
+let pez: SerVivo = new SerVivo("marino");
+let pez2: SerVivo = new SerVivo("marino");
+let pez3: SerVivo = new SerVivo("marino");
+let tigre: SerVivo = new SerVivo("terrestre");
+let leon: SerVivo = new SerVivo("terrestre");
+console.log("Total de seres vivos = " + SerVivo.totalDeSeresVivos);
 
-console.log("Total de seres vivos: " +SerVivo.totalDeSeresVivos);
-
-class Padre{
+class Padre {
     public almacenPublico: number;
     protected almacenProtegido: number;
     private almacenPrivado: number;
+    dameElAlmacenProtegido(){
+        return this.almacenProtegido;
+    }
 }
 let padre = new Padre();
 padre.almacenPublico = 77;
 
-class HijoDePadre extends Padre{
-    constructor(){
+class HijoDePadre extends Padre {
+    constructor(otroValor: number){
         super();
         this.almacenPublico = 33;
-        this.almacenProtegido = 25;
+        this.almacenProtegido = otroValor;
     }
 }
+let hijoDePadre = new HijoDePadre(22);
+let hijoDePadre2 = new HijoDePadre(23);
+hijoDePadre.almacenPublico;
+hijoDePadre.dameElAlmacenProtegido();
 
 abstract class Ser {
-    static totalDeSeresVivos: number = 0;
+    static totalDeSeres: number = 0;
     protected clasificacion: string;
     constructor(clasificacion: string){
         this.clasificacion = clasificacion;
-        Ser.totalDeSeresVivos +=1;
+        Ser.totalDeSeres +=1;
     }
     stringify(): string{
-        return "Clasificacion: " +this.clasificacion;
+        return "Clasificacion: " + this.clasificacion;
     }
     abstract desplazamiento(): string;
     abstract alimentarse(): string;
+    //abstract valorParaOrdenar(): number;
 }
 class Politico extends Ser{
     constructor(){
@@ -133,70 +139,150 @@ class Politico extends Ser{
         return "Dame dinero en sobres!";
     }
 }
-//Esto no se puede
-//let ser1: Ser = new Ser();
-
+//let ser1: Ser = new Ser(); Esto no se puede!
 let politico: Politico = new Politico();
 
-let funcionLambda = (uno: number, dos: number)=>{
- return uno + dos;
+abstract class MiClaseAbstracta{
+    
 }
-console.log("Resultado de sumar 1 y 3: " +funcionLambda(1,3));
+
+class SerDos {
+    private static instance: SerDos;
+    static totalDeSeres: number = 0;
+    protected clasificacion: string;
+    private constructor(clasificacion: string){
+        this.clasificacion = clasificacion;
+        Ser.totalDeSeres +=1;
+        if(!SerDos.instance){
+            SerDos.instance = this;
+        }
+        return SerDos.instance;
+    }
+    stringify(): string{
+        return "Clasificacion: " + this.clasificacion;
+    }
+    /*static instanceOf():SerDos{
+        
+    }*/
+
+}
+//SerDos.instanceOf();
+//let serDos = new SerDos();
+let otra = "otra";
+let funcionAnonimaClasica = function (uno,dos){
+    return uno + dos;
+}
+
+let funcionLambda = (uno: number,dos: number) =>{
+    return uno + dos;
+}
+console.log("Resultado de sumar 1 y 3 : "+funcionLambda(1,3));
 
 const PI = 3.141592654;
-//PI = 23; ESTO ESTA MAL
-
-//const otra; MAL HAY QUE DEFINIRLE UN VALOR, NO PUEDE SER UNDEFINED
-
-var {variable1, variable2} = {variable1: "valorN1", variable2:"valorN2"};
+//PI = 23 Esto no vale
+let {variable1,variable2} = {variable1:"valor1",variable2:"valor2"};
 console.log(variable1);
 console.log(variable2);
 
-function dameLosCamposPorConsola (campo1: string, campo2: number, ...elRestoDeCampos){
+dameLosCamposPorConsola("uno",2,"tres","cuatro",5,"seis");
+function dameLosCamposPorConsola(campo1: string,campo2: number, ...elRestoDeCampos): void{
     console.log(campo1);
     console.log(campo2);
     console.log(elRestoDeCampos);
-    //FOR IN
-    console.log("-----------FOR IN-----------");
+    console.log("for--in");
     for(let posicion in elRestoDeCampos){
-        console.log("La posicion " +posicion+" es "+elRestoDeCampos[posicion]);
+        console.log("El campo en la posicion " + posicion +" \n\t es " + elRestoDeCampos[posicion]);
     }
-    //FOR OF
-    console.log("-----------FOR OF-----------");
+    console.log("for--of");
     for(let campo of elRestoDeCampos){
-        console.log("El campo es " +campo);
+        console.log("El campo es " + campo);
     }
 }
-dameLosCamposPorConsola("uno", 2, "tres", "cuatro", 5, "seis");
-
 enum TipoDeVia{
-    Calle, 
-    Rua, 
-    Plaza, 
+    Calle = 7, 
+    Rua = 14, 
+    Plaza = 3, 
     Camino, 
     Avenida, 
     Carretera
-};
-var miTipoDeVia: TipoDeVia = TipoDeVia.Calle;
-console.log("Tipo de via: " +miTipoDeVia);
-
+}
 namespace TipoDeVia{
-    export function esAvenida(texto: string): TipoDeVia{
+    export function esAvenida(texto: string):TipoDeVia{
         if(texto == "Avda"){
             return TipoDeVia.Avenida;
         }
     }
 }
 
+enum Puntos {
+    Touchdown = 5,
+    Goal = 3
+}
+var miTipoDeVia: TipoDeVia = TipoDeVia.Calle;
+console.log("Tipo de via : " + miTipoDeVia);
+console.log("Tipo de via : " + TipoDeVia[miTipoDeVia]);
 var avenida = TipoDeVia.esAvenida("Avda");
-console.log(avenida);
 
-function invertir<T>(elementos: T[]): T[]{
+function invertir<T> (elementos: T[]): T[] {
     let invertido: T[] = [];
-    for(let posicion=0, posicionInvertido=elementos.length-1; 
-    posicion<elementos.length; 
-    posicion++, posicionInvertido--){
+    for(let posicion = 0, posicionInvertido = elementos.length -1 ; 
+        posicion < elementos.length;
+        posicion++,posicionInvertido-- ){
         invertido[posicionInvertido] = elementos[posicion];
     }
     return invertido;
+}
+let textosInvertidos :string[] = invertir<string>(["clientes","clientes2"]);
+
+let hijosDePadreInvertidos :HijoDePadre[] = invertir<HijoDePadre>([hijoDePadre,hijoDePadre2]);
+
+abstract class DAOGenerico <T> {
+    abstract add(objeto :T);
+    abstract del(objeto :T);
+    stringify(objeto :T){
+        return objeto+"";    
+    }
+}
+class ArrayGenericDAO <T>{
+    private almacen :T[] = [];
+    add(objeto: T){
+        this.almacen.push(objeto);
+    }
+    del(objeto: T){
+        // recorrer, buscar y eliminar! (Terminator)
+    }
+    list():T[]{
+        return this.almacen;
+    }
+}
+
+var dao: DAOGenerico<Persona> = null;
+dao.add(new Persona("","",""));
+
+// interfaz calculadora
+// control de la vista (ViewController)
+class Calculadora{
+    //atributos de instancia
+    private memoria: number = 0;
+    operar(numero: number,operacion: string):void{
+        this.memoria = this.memoria + numero;
+    }
+    dameLaMemoria():number{
+        return this.memoria;
+    }
+}
+// Simulo un clientes
+let calc1 = new Calculadora();// memoria = 0
+let calc2 = new Calculadora();// memoria = 0
+calc1.operar(7,"+"); // devuelve 7 - memoria 7
+class CalculadoraCientifica extends Calculadora{
+    operar(numero: number, operacion: string){
+        // en elcaso de suma, resta multi divi
+        if(operacion == "+" ){
+            return super.operar(numero,operacion);
+        }else{
+
+        }
+
+    }
 }

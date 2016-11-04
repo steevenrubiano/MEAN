@@ -19,7 +19,7 @@
             },
             "console": "internalConsole",
             "sourceMaps": true,
-            "outDir": "${workspaceRoot}/jsScripts/"
+            "outDir": "${workspaceRoot}/jsScripts"
         }
     ]
 }

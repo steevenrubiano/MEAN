@@ -1,168 +1,168 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var variable = 2016;
-//variable = "texto"; 
+let variable = 2018;
+//variable = 'texto';
 var otraVariable = 7;
 otraVariable = 14;
-var miCumple = { dia: 22, mes: 2, anio: 1993 };
-console.log("El dia de mi cumple es: " + miCumple.dia);
-console.log("Antes de cumplir años: " + miCumple.anio);
-cumplirAnios(miCumple);
-console.log("Despues de cumplir años: " + miCumple.anio);
-function cumplirAnios(fechaDeCumple) {
-    fechaDeCumple.anio++;
+var miCumpleanios = { dia: 3, mes: 11, anio: 1978 };
+console.log("El dia de mi cumple es : " + miCumpleanios.dia);
+console.log("Antes de cumplir años : " + miCumpleanios.anio);
+cumplirAnios(miCumpleanios);
+console.log("Despues de cumplir años : " + miCumpleanios.anio);
+function cumplirAnios(fechaDeCumpleanios) {
+    fechaDeCumpleanios.anio++;
 }
-//Definiciones de clases
-var Persona = (function () {
-    //Metodo constructor
-    function Persona(nombre, apellido1, apellido2) {
+// Definiciones de clases
+class Persona {
+    // Metodo constructor
+    constructor(nombre, apellido1, apellido2) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
     }
-    Persona.prototype.stringify = function () {
+    stringify() {
         return this.nombre + " " + this.apellido1 + " " + this.apellido2;
-    };
-    return Persona;
-}());
-//Sin metodo constructor
-/*let jonathan = new Persona();
-jonathan.nombre = "Jonathan";
-jonathan.apellido1 = "Rubiano";
-jonathan.apellido2 = "Marín";*/
-//Con metodo constructor
-var jonathan = new Persona("Jonathan", "Rubiano", "Marín");
-var laura = new Persona("Laura", "Herrera", "Martinez");
-console.log(jonathan.stringify());
-console.log(laura.stringify());
-//Herencia
-var Ciudadano = (function (_super) {
-    __extends(Ciudadano, _super);
-    function Ciudadano(nombre, apellido1, apellido2, identidad) {
-        _super.call(this, nombre, apellido1, apellido2);
+    }
+}
+// Sin metodo constructor
+/*let ruben = new Persona();
+ruben.nombre = "Ruben";
+ruben.apellido1 = "Gomez";
+ruben.apellido2 = "Garcia";*/
+// Con metodo constructor
+let ruben = new Persona("Ruben", "Gomez", "Garcia");
+let luis = new Persona("Luis", "Perez", "Garcia");
+let alberto = new Persona("Alberto", "Gomez", "Gonzalez");
+console.log(ruben.stringify());
+console.log(luis.stringify());
+console.log(alberto.stringify());
+// Herencia!
+class Ciudadano extends Persona {
+    constructor(nombre, apellido1, apellido2, identidad) {
+        super(nombre, apellido1, apellido2);
         this.identidad = identidad;
     }
-    /*constructor(identidad: string){
+    /*constructor(identidad :string){
         super(null,null,null);
         this.identidad = identidad;
-    } */
-    Ciudadano.prototype.stringify = function () {
-        return _super.prototype.stringify.call(this) + " " + this.identidad;
-    };
-    return Ciudadano;
-}(Persona));
-var ciudadanoKane = new Ciudadano("kane", null, null, "1");
-//var ciudadanoKane = new Ciudadano("1");
+    }*/
+    stringify() {
+        return super.stringify() + " " + this.identidad;
+    }
+}
+var ciudadanoKane = new Ciudadano("Ruben", "Gomez", "Garcia", "1");
 console.log(ciudadanoKane.stringify());
 var otraPersona = ciudadanoKane;
 console.log(otraPersona.stringify());
-var SerVivo = (function () {
-    function SerVivo(clasificacion) {
+class SerVivo {
+    constructor(clasificacion) {
         this.clasificacion = clasificacion;
         SerVivo.totalDeSeresVivos += 1;
     }
-    SerVivo.prototype.stringify = function () {
+    stringify() {
         return "Clasificacion: " + this.clasificacion;
-    };
-    SerVivo.totalDeSeresVivos = 0;
-    return SerVivo;
-}());
-var pez = new SerVivo("Marino");
-var pez2 = new SerVivo("Marino");
-var pez3 = new SerVivo("Marino");
-var tigre = new SerVivo("Terrestre");
-var leon = new SerVivo("Terrestre");
-var pantera = new SerVivo("Terrestre");
-console.log("Total de seres vivos: " + SerVivo.totalDeSeresVivos);
-var Padre = (function () {
-    function Padre() {
     }
-    return Padre;
-}());
-var padre = new Padre();
+}
+SerVivo.totalDeSeresVivos = 0;
+let pez = new SerVivo("marino");
+let pez2 = new SerVivo("marino");
+let pez3 = new SerVivo("marino");
+let tigre = new SerVivo("terrestre");
+let leon = new SerVivo("terrestre");
+console.log("Total de seres vivos = " + SerVivo.totalDeSeresVivos);
+class Padre {
+    dameElAlmacenProtegido() {
+        return this.almacenProtegido;
+    }
+}
+let padre = new Padre();
 padre.almacenPublico = 77;
-var HijoDePadre = (function (_super) {
-    __extends(HijoDePadre, _super);
-    function HijoDePadre() {
-        _super.call(this);
+class HijoDePadre extends Padre {
+    constructor(otroValor) {
+        super();
         this.almacenPublico = 33;
-        this.almacenProtegido = 25;
+        this.almacenProtegido = otroValor;
     }
-    return HijoDePadre;
-}(Padre));
-var Ser = (function () {
-    function Ser(clasificacion) {
+}
+let hijoDePadre = new HijoDePadre(22);
+let hijoDePadre2 = new HijoDePadre(23);
+hijoDePadre.almacenPublico;
+hijoDePadre.dameElAlmacenProtegido();
+class Ser {
+    constructor(clasificacion) {
         this.clasificacion = clasificacion;
-        Ser.totalDeSeresVivos += 1;
+        Ser.totalDeSeres += 1;
     }
-    Ser.prototype.stringify = function () {
+    stringify() {
         return "Clasificacion: " + this.clasificacion;
-    };
-    Ser.totalDeSeresVivos = 0;
-    return Ser;
-}());
-var Politico = (function (_super) {
-    __extends(Politico, _super);
-    function Politico() {
-        _super.call(this, "cucaracha");
     }
-    Politico.prototype.desplazamiento = function () {
+}
+Ser.totalDeSeres = 0;
+class Politico extends Ser {
+    constructor() {
+        super("cucaracha");
+    }
+    desplazamiento() {
         return "En coche oficial";
-    };
-    Politico.prototype.alimentarse = function () {
+    }
+    alimentarse() {
         return "Dame dinero en sobres!";
-    };
-    return Politico;
-}(Ser));
-//Esto no se puede
-//let ser1: Ser = new Ser();
-var politico = new Politico();
-var funcionLambda = function (uno, dos) {
+    }
+}
+//let ser1: Ser = new Ser(); Esto no se puede!
+let politico = new Politico();
+class MiClaseAbstracta {
+}
+class SerDos {
+    constructor(clasificacion) {
+        this.clasificacion = clasificacion;
+        Ser.totalDeSeres += 1;
+        if (!SerDos.instance) {
+            SerDos.instance = this;
+        }
+        return SerDos.instance;
+    }
+    stringify() {
+        return "Clasificacion: " + this.clasificacion;
+    }
+}
+SerDos.totalDeSeres = 0;
+//SerDos.instanceOf();
+//let serDos = new SerDos();
+let otra = "otra";
+let funcionAnonimaClasica = function (uno, dos) {
     return uno + dos;
 };
-console.log("Resultado de sumar 1 y 3: " + funcionLambda(1, 3));
-var PI = 3.141592654;
-//PI = 23; ESTO ESTA MAL
-//const otra; MAL HAY QUE DEFINIRLE UN VALOR, NO PUEDE SER UNDEFINED
-var _a = { variable1: "valorN1", variable2: "valorN2" }, variable1 = _a.variable1, variable2 = _a.variable2;
+let funcionLambda = (uno, dos) => {
+    return uno + dos;
+};
+console.log("Resultado de sumar 1 y 3 : " + funcionLambda(1, 3));
+const PI = 3.141592654;
+//PI = 23 Esto no vale
+let { variable1, variable2 } = { variable1: "valor1", variable2: "valor2" };
 console.log(variable1);
 console.log(variable2);
-function dameLosCamposPorConsola(campo1, campo2) {
-    var elRestoDeCampos = [];
-    for (var _i = 2; _i < arguments.length; _i++) {
-        elRestoDeCampos[_i - 2] = arguments[_i];
-    }
+dameLosCamposPorConsola("uno", 2, "tres", "cuatro", 5, "seis");
+function dameLosCamposPorConsola(campo1, campo2, ...elRestoDeCampos) {
     console.log(campo1);
     console.log(campo2);
     console.log(elRestoDeCampos);
-    //FOR IN
-    console.log("-----------FOR IN-----------");
-    for (var posicion in elRestoDeCampos) {
-        console.log("La posicion " + posicion + " es " + elRestoDeCampos[posicion]);
+    console.log("for--in");
+    for (let posicion in elRestoDeCampos) {
+        console.log("El campo en la posicion " + posicion + " \n\t es " + elRestoDeCampos[posicion]);
     }
-    //FOR OF
-    console.log("-----------FOR OF-----------");
-    for (var _a = 0, elRestoDeCampos_1 = elRestoDeCampos; _a < elRestoDeCampos_1.length; _a++) {
-        var campo = elRestoDeCampos_1[_a];
+    console.log("for--of");
+    for (let campo of elRestoDeCampos) {
         console.log("El campo es " + campo);
     }
 }
-dameLosCamposPorConsola("uno", 2, "tres", "cuatro", 5, "seis");
 var TipoDeVia;
 (function (TipoDeVia) {
-    TipoDeVia[TipoDeVia["Calle"] = 0] = "Calle";
-    TipoDeVia[TipoDeVia["Rua"] = 1] = "Rua";
-    TipoDeVia[TipoDeVia["Plaza"] = 2] = "Plaza";
-    TipoDeVia[TipoDeVia["Camino"] = 3] = "Camino";
-    TipoDeVia[TipoDeVia["Avenida"] = 4] = "Avenida";
-    TipoDeVia[TipoDeVia["Carretera"] = 5] = "Carretera";
+    TipoDeVia[TipoDeVia["Calle"] = 7] = "Calle";
+    TipoDeVia[TipoDeVia["Rua"] = 14] = "Rua";
+    TipoDeVia[TipoDeVia["Plaza"] = 3] = "Plaza";
+    TipoDeVia[TipoDeVia["Camino"] = 4] = "Camino";
+    TipoDeVia[TipoDeVia["Avenida"] = 5] = "Avenida";
+    TipoDeVia[TipoDeVia["Carretera"] = 6] = "Carretera";
 })(TipoDeVia || (TipoDeVia = {}));
-;
-var miTipoDeVia = TipoDeVia.Calle;
-console.log("Tipo de via: " + miTipoDeVia);
 var TipoDeVia;
 (function (TipoDeVia) {
     function esAvenida(texto) {
@@ -172,13 +172,43 @@ var TipoDeVia;
     }
     TipoDeVia.esAvenida = esAvenida;
 })(TipoDeVia || (TipoDeVia = {}));
+var Puntos;
+(function (Puntos) {
+    Puntos[Puntos["Touchdown"] = 5] = "Touchdown";
+    Puntos[Puntos["Goal"] = 3] = "Goal";
+})(Puntos || (Puntos = {}));
+var miTipoDeVia = TipoDeVia.Calle;
+console.log("Tipo de via : " + miTipoDeVia);
+console.log("Tipo de via : " + TipoDeVia[miTipoDeVia]);
 var avenida = TipoDeVia.esAvenida("Avda");
-console.log(avenida);
 function invertir(elementos) {
-    var invertido = [];
-    for (var posicion = 0, posicionInvertido = elementos.length - 1; posicion < elementos.length; posicion++, posicionInvertido--) {
+    let invertido = [];
+    for (let posicion = 0, posicionInvertido = elementos.length - 1; posicion < elementos.length; posicion++, posicionInvertido--) {
         invertido[posicionInvertido] = elementos[posicion];
     }
     return invertido;
 }
+let textosInvertidos = invertir(["clientes", "clientes2"]);
+let hijosDePadreInvertidos = invertir([hijoDePadre, hijoDePadre2]);
+class DAOGenerico {
+    stringify(objeto) {
+        return objeto + "";
+    }
+}
+class ArrayGenericDAO {
+    constructor() {
+        this.almacen = [];
+    }
+    add(objeto) {
+        this.almacen.push(objeto);
+    }
+    del(objeto) {
+        // recorrer, buscar y eliminar! (Terminator)
+    }
+    list() {
+        return this.almacen;
+    }
+}
+var dao = null;
+dao.add(new Persona("", "", ""));
 //# sourceMappingURL=app.js.map
