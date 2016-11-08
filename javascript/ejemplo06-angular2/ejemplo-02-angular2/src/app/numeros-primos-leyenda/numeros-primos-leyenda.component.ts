@@ -9,11 +9,9 @@ export class NumerosPrimosLeyendaComponent implements OnInit {
 
   mostrarInformacion: boolean = false;
   constructor() { }
-
   cambiarEstadoInformacion():void{
     this.mostrarInformacion = !this.mostrarInformacion;
   }
-
   ngOnInit() {
   }
 

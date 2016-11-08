@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { NumerosPrimosService } from '../numeros-primos.service';
+import { NumerosPrimosService} from '../numeros-primos.service';
 
 @Component({
   selector: 'app-numeros-primos-panel',
   templateUrl: './numeros-primos-panel.component.html',
-  styleUrls: ['./numeros-primos-panel.component.css']
+  styleUrls: ['./numeros-primos-panel.component.css'],
+  providers: [NumerosPrimosService]
 })
 export class NumerosPrimosPanelComponent implements OnInit {
 
   listaDeNumeros: number[];
-  
-  constructor(private numerosPrimosService: NumerosPrimosService ) { 
+  constructor(private numerosPrimosService: NumerosPrimosService) { 
     this.listaDeNumeros = this.numerosPrimosService.listaDeNumeros;
-  }
+}
 
 
   colorEnDistintosEstados(numero: number):string{
@@ -26,4 +26,6 @@ export class NumerosPrimosPanelComponent implements OnInit {
   }
   ngOnInit() {
   }
+  
+
 }
