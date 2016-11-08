@@ -211,4 +211,51 @@ class ArrayGenericDAO {
 }
 var dao = null;
 dao.add(new Persona("", "", ""));
+// interfaz calculadora
+// control de la vista (ViewController)
+class Calculadora {
+    constructor() {
+        //atributos de instancia
+        this.memoria = 0;
+    }
+    operar(numero, operacion) {
+        this.memoria = this.memoria + numero;
+    }
+    dameLaMemoria() {
+        return this.memoria;
+    }
+}
+// Simulo un clientes
+let calc1 = new Calculadora(); // memoria = 0
+let calc2 = new Calculadora(); // memoria = 0
+calc1.operar(7, Operador.sumar); // devuelve 7 - memoria 7
+class CalculadoraCientifica extends Calculadora {
+    operar(numero, operacion) {
+        // en elcaso de suma, resta multi divi
+        if (Operador.sumar == operacion) {
+            return super.operar(numero, operacion);
+        }
+        else {
+        }
+    }
+}
+var Operador;
+(function (Operador) {
+    Operador[Operador["sumar"] = 0] = "sumar";
+    Operador[Operador["restar"] = 1] = "restar";
+    Operador[Operador["multiplicar"] = 2] = "multiplicar";
+    Operador[Operador["dividir"] = 3] = "dividir";
+})(Operador || (Operador = {}));
+class Utilidades {
+    static localizarCadena() {
+    }
+}
+var util = new Utilidades();
+Utilidades.localizarCadena;
+function localizarCadena() {
+}
+function localizarNumero() {
+}
+function resetearFormulario() {
+}
 //# sourceMappingURL=app.js.map
