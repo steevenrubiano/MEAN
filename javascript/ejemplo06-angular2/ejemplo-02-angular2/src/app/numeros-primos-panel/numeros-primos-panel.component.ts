@@ -10,6 +10,7 @@ import { NumerosPrimosService} from '../numeros-primos.service';
 export class NumerosPrimosPanelComponent implements OnInit {
 
   listaDeNumeros: number[];
+  private mostrarInformacion: boolean = false;
   constructor(private numerosPrimosService: NumerosPrimosService) { 
     this.listaDeNumeros = this.numerosPrimosService.listaDeNumeros;
 }
@@ -26,6 +27,18 @@ export class NumerosPrimosPanelComponent implements OnInit {
   }
   ngOnInit() {
   }
-  
-
+  tipoDeNumero(numero: number){
+    if(this.numerosPrimosService.esPrimo(numero)){
+        return "Es un numero primo";
+      } else if (this.numerosPrimosService.esMultiploDeTres(numero)){
+        return "Es multiplo de tres";
+      } else{
+        return "No es nada de nada, pobrecillo ¡_¡"; 
+      }
+  }
+  eventoDeFilaRecibido(eventoRecibido: boolean){
+    console.log("Evento: " +eventoRecibido);
+    this.mostrarInformacion = eventoRecibido;
+    console.log("Evento recibido!")
+  }
 }
