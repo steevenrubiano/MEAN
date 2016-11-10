@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Iniciar",
+            "name": "Ejemplo 01",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/ejemplo01-nodejs-base.js",
+            "program": "${workspaceRoot}/ejemplo-01-nodejs-base.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
@@ -22,23 +22,22 @@
             "outFiles": []
         },
         {
-            "name": "Asociar",
+            "name": "Ejemplo 02",
             "type": "node",
-            "request": "attach",
-            "port": 5858,
-            "address": "localhost",
-            "restart": false,
-            "sourceMaps": false,
-            "outFiles": [],
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
-        },
-        {
-            "name": "Asociar al proceso",
-            "type": "node",
-            "request": "attach",
-            "processId": "${command.PickProcess}",
-            "port": 5858,
+            "request": "launch",
+            "program": "${workspaceRoot}/ejemplo-02-require.js",
+            "stopOnEntry": false,
+            "args": ["ejemplo-02-require.js"],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "internalConsole",
             "sourceMaps": false,
             "outFiles": []
         }
