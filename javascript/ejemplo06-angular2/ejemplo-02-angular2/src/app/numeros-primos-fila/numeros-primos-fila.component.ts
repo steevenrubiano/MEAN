@@ -5,20 +5,25 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   templateUrl: './numeros-primos-fila.component.html',
   styleUrls: ['./numeros-primos-fila.component.css'],
   inputs:['numero'],
-  outputs:['eventoMostrar']
+  // Definicion del evento
+  outputs: ['eventoMostrar']
 })
 export class NumerosPrimosFilaComponent implements OnInit {
 
   private numero: number = 0;
+  // Event Emitter para propagar el evento
   private eventoMostrar: EventEmitter<boolean> = new EventEmitter<boolean>();
   private mostrarContenido: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-  enviarNotificacion(): void{
+  //Aqui disparo el evento
+  enviarNotificacion():void{
     this.mostrarContenido = !this.mostrarContenido;
-    console.log("Evento enviado!")
+    console.log("Evento enviado!");
     this.eventoMostrar.emit(this.mostrarContenido);
+    
   }
+
 }
