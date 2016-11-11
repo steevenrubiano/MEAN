@@ -11,7 +11,7 @@ module.export = function (directorio, extension, callback){
             //Filtro el contenido de ficheros
             ficheros = ficheros.filter(
                 (fichero)=>{
-                    return path.extname(fichero)==="." + extension;
+                    return path.extname(fichero) === "." + extension;
                 });
                 callback(null, ficheros);
         }
