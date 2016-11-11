@@ -7,7 +7,7 @@ function queHacerCuandoDevuelvaLosFicheros(error, arrayDeFicheros){
         console.error("Error al listar", error);
     }
     else{
-        ficheros.forEach(
+        arrayDeFicheros.forEach(
             (fichero)=>{
                 console.log(fichero);
         });

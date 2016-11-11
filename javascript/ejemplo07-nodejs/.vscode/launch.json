@@ -41,7 +41,7 @@
             "name": "Ejemplo05",
             "program": "${workspaceRoot}/ejemplo-05-listar-ficheros-main.js",
             "cwd": "${workspaceRoot}",
-            "args":[]
+            "args":[".", "js"]
         },
         {
             "type": "node",

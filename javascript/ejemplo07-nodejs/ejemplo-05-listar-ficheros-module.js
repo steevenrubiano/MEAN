@@ -1,7 +1,7 @@
 let fs = require("fs");
 let path = require("path");
 
-module.export = function (directorio, extension, callback){
+module.exports = function (directorio, extension, callback){
     fs.readdir(directorio, (error, ficheros)=>{
         if(error){
             //console.error("Que habra pasado!", error);
