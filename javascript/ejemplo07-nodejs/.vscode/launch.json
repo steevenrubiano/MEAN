@@ -50,6 +50,38 @@
             "program": "${workspaceRoot}/ejemplo-06-http.js",
             "cwd": "${workspaceRoot}",
             "args":[]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo07",
+            "program": "${workspaceRoot}/ejemplo-07-http-pipe-bl.js",
+            "cwd": "${workspaceRoot}",
+            "args":[]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo08",
+            "program": "${workspaceRoot}/ejemplo-08-http-async.js",
+            "cwd": "${workspaceRoot}",
+            "args":[]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo09",
+            "program": "${workspaceRoot}/ejemplo-09-server.js",
+            "cwd": "${workspaceRoot}",
+            "args":[]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo10",
+            "program": "${workspaceRoot}/ejemplo-10-file-server.js",
+            "cwd": "${workspaceRoot}",
+            "args":[]
         }
     ]
 }
