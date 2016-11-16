@@ -82,6 +82,22 @@
             "program": "${workspaceRoot}/ejemplo-10-file-server.js",
             "cwd": "${workspaceRoot}",
             "args":[]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo11",
+            "program": "${workspaceRoot}/ejemplo-11-http-UpperCasePost.js",
+            "cwd": "${workspaceRoot}",
+            "args":[]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo12",
+            "program": "${workspaceRoot}/ejemplo-12-json-server.js",
+            "cwd": "${workspaceRoot}",
+            "args":[]
         }
     ]
 }
