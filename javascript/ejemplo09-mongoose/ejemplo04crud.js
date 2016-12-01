@@ -1,30 +1,30 @@
 var mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost:20017/test");
-
-var Libro = require("./ejemplo04model");
-
-function getLibros(limit, skip){
-    //return Libro.find(); //Paginad!
+mongoose.connect("localhost:27017/test")
+var Libro = require("./ejemplo04model")
+function getLibros(limit,skip){
+    //return Libro.find() // Paginad!
 }
-function getLibro(_id){
-    Libro.findByID(_id, (error, libro)=>{
+function getLibroById(_id){
+    Libro.findById(_id,(error,libro)=>{
         //TODO:
-    });
+    })
 }
 function saveLibro(libro){
-    Libro.save((error)=>{
-        //TODO:
-    });
+    new Libro({clave:"valor"});
+    libro.save((error)=>{
+        //TODO: 
+    })
 }
 function updateLibro(libro){
-    //TODO:
-    getLibro(libro._id);
+    //TODO
+    getLibroById(libro._id)
     libro.categoria = "terror";
     saveLibro(libro);
 }
 function deleteLibro(_id){
-    Libro.findByIdAndRemove(_id, ()=>{
-        
-    });
+    Libro.findByIdAndRemove(_id,()=>{
+
+    })
 }
+
+deleteLibro("1")

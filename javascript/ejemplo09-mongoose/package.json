@@ -9,7 +9,7 @@
   "keywords": [
     "mongoose"
   ],
-  "author": "Jonathan",
+  "author": "rgomez",
   "license": "ISC",
   "dependencies": {
     "mongoose": "^4.7.0"
