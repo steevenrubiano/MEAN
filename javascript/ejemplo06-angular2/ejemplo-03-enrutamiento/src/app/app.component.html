@@ -1,3 +1,21 @@
 <h1>
   {{title}}
 </h1>
+<ul>
+  <li>
+    <a [routerLink]="['listar']">
+      Lista de libros
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['consultar', '1']">
+      Consultar libro
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['formulario']">
+      Formulario libro
+    </a>
+  </li>
+</ul>
+<router-outlet> </router-outlet>
