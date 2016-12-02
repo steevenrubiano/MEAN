@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-//definimos
-import { Libro } from '../libro';
 import { ActivatedRoute } from '@angular/router';
+
+import { Libro } from '../libro';
 
 @Component({
   selector: 'app-consulta-libro',
@@ -11,15 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 export class ConsultaLibroComponent implements OnInit {
 
   private libro: Libro;
-
-  constructor(private route: ActivatedRoute) { 
-    this.libro = new Libro(0, "");
-  }
+  constructor(
+    private route: ActivatedRoute
+    ) {
+      this.libro = new Libro(0,"");
+     }
 
   ngOnInit() {
-    //Aqui es perfecto para obtener informacion a desplegar
-    //Recoger ruta
-    this.libro.id = this.route.snapshot.params['id'];
+    // Aqui es perfecto para obtener informacion a mostrar
+    this.libro.id = this.route.snapshot.params['id']
   }
 
 }

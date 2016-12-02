@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-libros.component.css']
 })
 export class ListaLibrosComponent implements OnInit {
-
+  //private libros: Libro[];
   constructor() { }
 
   ngOnInit() {

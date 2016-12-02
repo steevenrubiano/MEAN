@@ -3,7 +3,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-describe('App: Ejemplo03Enrutamiento', () => {
+describe('App: Ejemplo03Enrutado', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
