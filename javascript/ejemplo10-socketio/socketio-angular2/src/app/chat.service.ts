@@ -11,7 +11,8 @@ import { Message } from './message';
 export class ChatService {
 
   //Definimos una url plana
-  private url: string = 'http://localhost:3000'
+  //private url: string = 'http://localhost:3000'; //Estaba al principio
+  private url: string = 'http://localhost:3000/chat';
   //Definimos el socket que abrira el cliente
   private socket;
 
