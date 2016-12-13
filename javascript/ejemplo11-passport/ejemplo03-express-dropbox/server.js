@@ -29,8 +29,8 @@ passport.use(new DropboxStrategy({
     //getaferules@gmx.com
     //password
     consumerKey: 'gbvhcgckbjp4nbd',
-    cosumerSecret: 'h28mm0fjalb02e0',
-    callbackUrl: 'http://localhost:8080/home'
+    consumerSecret: 'h28mm0fjalb02e0',
+    callbackURL: 'http://localhost:8080/dropbox'
 },(token, tokenSecret, profile, next)=>{
     console.log('Perfil de dropbox: ', profile);
     if(users[profile.id]){
@@ -41,3 +41,8 @@ passport.use(new DropboxStrategy({
         next(null, profile);
     }
 }));
+app.get('/dropbox', passport.authenticate('dropbox'), (req, res)=>{
+    res.send('Soy feliz');
+});
+
+app.listen(8080);
