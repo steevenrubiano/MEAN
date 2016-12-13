@@ -9,6 +9,13 @@ var passport = require('passport');
 var Strategy = require('passport-http').BasicStrategy;
 //---------------------
 
+//Middleware
+app.use((req, res, next)=>{
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Headers', 'Authorization');
+    next();
+});
+//---------------------
 
 passport.use(new Strategy((username, password, done)=>{
     console.log('Username: ' + username + '\nPassword: ' + password);
