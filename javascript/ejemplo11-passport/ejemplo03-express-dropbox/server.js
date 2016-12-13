@@ -3,7 +3,7 @@ var passport = require('passport');
 var DropboxStrategy = require('passport-dropbox');
 var app = express();
 var session = require('express-session');
-let users = [];
+let users = {};
 app.use(passport.initialize());
 app.use(
     session(
